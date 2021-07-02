@@ -1,0 +1,52 @@
+.card {
+  display: flex;
+  background: var(--shape);
+  border-radius: 1rem;
+
+  img {
+    width: 220px;
+    height: 220px;
+    border-radius: 1rem 0 0 1rem;
+  }
+
+  .content {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .status {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      .circle {
+        margin-right: 0.5rem;
+        color: red;
+        font-size: 2rem;
+        &.Alive {
+          color: green;
+        }
+        &.unknown {
+          color: yellow;
+        }
+      }
+    }
+
+    h1 {
+      color: var(--title);
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+
+      .origin {
+        margin-top: 1rem;
+      }
+      span {
+        font-weight: 600;
+        color: var(--subtitle);
+      }
+    }
+  }
+}

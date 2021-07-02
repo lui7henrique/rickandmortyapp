@@ -1,0 +1,23 @@
+.home {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    background: var(--primary);
+    color: var(--title);
+    padding: 1rem;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: filter 0.2s;
+    font-weight: bold;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
