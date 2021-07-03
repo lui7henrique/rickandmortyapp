@@ -2,7 +2,7 @@
 
 ## 🧠 To develop
 - [ ] Readme
-- [ ] Remove show more characters button when dont have more 
+- [ ] Remove show more characters button when don't have more 
 - [ ] Character page
 - [ ] Location page
 - [ ] Show episodes
