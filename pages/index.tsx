@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Character } from "../components/Character";
 import { PageNotFound } from "../components/PageNotFound";
+import { FaSearch } from 'react-icons/fa'
 
 const defaultEndpoint = "https://rickandmortyapi.com/api/character";
 
@@ -26,6 +27,7 @@ export default function Home({ data }: any) {
   const { info, results: defaultResults = [] } = data;
   const [results, updateResults] = useState(defaultResults);
   const [search, setSearch] = useState("");
+  const [hasMoreResults, setHasMoreResults] = useState<true | false>(true)
 
   const [page, updatePage] = useState({
     ...info,
@@ -40,14 +42,15 @@ export default function Home({ data }: any) {
     async function request() {
       const res = await fetch(current);
       const nextData = await res.json();
-      console.log(res);
 
       updatePage({ current, ...nextData.info });
+      setHasMoreResults(nextData.info.next !== null)
 
       if (!nextData.info?.prev) {
         updateResults(nextData.results);
         return;
       }
+
 
       updateResults((prev: any) => {
         return [...prev, ...nextData.results];
@@ -84,7 +87,7 @@ export default function Home({ data }: any) {
           onChange={(e) => setSearch(e.target.value)}
         />
         <button>
-          <img src="./portal2.png" alt="Portal" />
+          <FaSearch size={25}/>
         </button>
       </form>
       {results ? (
@@ -116,7 +119,7 @@ export default function Home({ data }: any) {
       ) : (
         <PageNotFound />
       )}
-      {results && (
+      {hasMoreResults === true && (
         <button className="load" onClick={handleLoadMore}>
           Load more
         </button>
