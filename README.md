@@ -2,8 +2,11 @@
 
 ## 🧠 To develop
 - [ ] Readme
-- [ ] Character Theme
-- [ ] Responsivity
+- [ ] Remove show more characters button when dont have more 
+- [ ] Character page
+- [ ] Location page
+- [ ] Show episodes
+- [x] Responsivity
 - [ ] Light Theme
 - [ ] React Native version
 - [ ] Outros bancos de dados
