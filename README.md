@@ -1,5 +1,17 @@
 > Acess on: https://rickandmortyapp-steel.vercel.app/
 
+## 🧠 To develop
+- [ ] Readme
+- [ ] Remove show more characters button when don't have more 
+- [ ] Character page
+- [ ] Location page
+- [ ] Show episodes
+- [x] Responsivity
+- [ ] Light Theme
+- [ ] React Native version
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
