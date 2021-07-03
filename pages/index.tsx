@@ -7,7 +7,10 @@ import { Character } from "../components/Character";
 const defaultEndpoint = "https://rickandmortyapi.com/api/character";
 
 type CurrentTarget = {
-  values: any;
+  form: {
+    input: HTMLInputElement;
+    button: HTMLButtonElement;
+  };
 };
 
 export async function getServerSideProps() {
@@ -24,6 +27,7 @@ export async function getServerSideProps() {
 export default function Home({ data }: any) {
   const { info, results: defaultResults = [] } = data;
   const [results, updateResults] = useState(defaultResults);
+  const [search, setSearch] = useState("");
 
   const [page, updatePage] = useState({
     ...info,
@@ -63,18 +67,10 @@ export default function Home({ data }: any) {
     });
   }
 
-  function handleSubmitSearch(e: any) {
-    e.preventDefault();
+  function handleSubmitSearch(event: React.FormEvent<HTMLInputElement>) {
+    event.preventDefault();
 
-    const { currentTarget = {} }: any = e;
-    console.log(currentTarget);
-    const fields = Array.from(currentTarget.values);
-    const fieldQuery: any = fields.find((field: any) => field.name === "query");
-
-    const value = fieldQuery.value || "";
-    console.log(value);
-
-    const endpoint = `https://rickandmortyapi.com/api/character/?name=${value}`;
+    const endpoint = `https://rickandmortyapi.com/api/character/?name=${search}`;
     updatePage({
       current: endpoint,
     });
@@ -86,7 +82,7 @@ export default function Home({ data }: any) {
         <input
           name="query"
           type="search"
-          placeholder="Search a character by name"
+          onChange={(e) => setSearch(e.target.value)}
         />
         <button>
           <img src="./portal2.png" alt="Portal" />
