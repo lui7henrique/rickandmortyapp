@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Character } from "../components/Character";
 import { PageNotFound } from "../components/PageNotFound";
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch } from "react-icons/fa";
 
 const defaultEndpoint = "https://rickandmortyapi.com/api/character";
 
@@ -27,7 +27,7 @@ export default function Home({ data }: any) {
   const { info, results: defaultResults = [] } = data;
   const [results, updateResults] = useState(defaultResults);
   const [search, setSearch] = useState("");
-  const [hasMoreResults, setHasMoreResults] = useState<true | false>(true)
+  const [hasMoreResults, setHasMoreResults] = useState<true | false>(true);
 
   const [page, updatePage] = useState({
     ...info,
@@ -44,13 +44,12 @@ export default function Home({ data }: any) {
       const nextData = await res.json();
 
       updatePage({ current, ...nextData.info });
-      setHasMoreResults(nextData.info.next !== null)
+      setHasMoreResults(nextData.info.next !== null);
 
       if (!nextData.info?.prev) {
         updateResults(nextData.results);
         return;
       }
-
 
       updateResults((prev: any) => {
         return [...prev, ...nextData.results];
@@ -87,7 +86,7 @@ export default function Home({ data }: any) {
           onChange={(e) => setSearch(e.target.value)}
         />
         <button>
-          <FaSearch size={25}/>
+          <FaSearch size={25} />
         </button>
       </form>
       {results ? (
