@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -58,12 +59,31 @@ export default function Home({ data }: any) {
     });
   }
 
+  function handleSubmitSearch(e) {
+    e.preventDefault();
+
+    const { currentTarget = {} } = e;
+    console.log(currentTarget);
+    const fields = Array.from(currentTarget.elements);
+    const fieldQuery = fields.find((field) => field.name === "query");
+
+    const value = fieldQuery.value || "";
+    console.log(value);
+
+    const endpoint = `https://rickandmortyapi.com/api/character/?name=${value}`;
+    updatePage({
+      current: endpoint,
+    });
+  }
+
   return (
     <div className="home">
-      <div>
-        <h1>Wubba Lubba Dub Dub</h1>
-        <h1>This is an app builded used Next Js and Rick and Morty API</h1>
-      </div>
+      <form onSubmit={handleSubmitSearch}>
+        <input name="query" type="search" />
+        <button>
+          <img src="./portal2.png" />
+        </button>
+      </form>
       <div className="cardList">
         {results.map((results: any) => {
           const { id, name, status, species, gender, origin, location, image } =
@@ -81,7 +101,9 @@ export default function Home({ data }: any) {
           );
         })}
       </div>
-      <button onClick={handleLoadMore}>Load more</button>
+      <button className="load" onClick={handleLoadMore}>
+        Load more
+      </button>
     </div>
   );
 }

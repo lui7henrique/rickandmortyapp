@@ -3,8 +3,34 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 
-  button {
+  > form {
+    display: flex;
+    > button {
+      padding: 0.5rem;
+      background: var(--shape);
+      border-radius: 0 0.5rem 0.5rem 0;
+      border: none;
+      cursor: pointer;
+      img {
+        width: 50px;
+      }
+    }
+    > input {
+      font-size: 1.5rem;
+      font-weight: 600;
+      width: 95%;
+      padding: 1rem;
+      background: var(--shape);
+      border: none;
+      border-radius: 0.5rem 0 0 0.5rem;
+      color: var(--text);
+      outline: none;
+    }
+  }
+
+  .load {
     background: var(--primary);
     color: var(--title);
     padding: 1rem;
