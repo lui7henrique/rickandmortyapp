@@ -44,7 +44,7 @@ export default function Home({ data }: any) {
       const nextData = await res.json();
 
       updatePage({ current, ...nextData.info });
-      setHasMoreResults(nextData.info.next !== null);
+      setHasMoreResults(nextData.info?.next !== null);
 
       if (!nextData.info?.prev) {
         updateResults(nextData.results);
@@ -118,7 +118,7 @@ export default function Home({ data }: any) {
       ) : (
         <PageNotFound />
       )}
-      {hasMoreResults === true && (
+      {results && hasMoreResults === true && (
         <button className="load" onClick={handleLoadMore}>
           Load more
         </button>
