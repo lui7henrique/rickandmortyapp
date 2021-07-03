@@ -15,6 +15,7 @@
       cursor: pointer;
       svg {
         color: var(--subtitle);
+        margin-right: 1rem;
       }
     }
     > input {
@@ -31,7 +32,13 @@
   }
 
   .load {
-    background: var(--primary);
+    background: linear-gradient(
+      90deg,
+      rgba(68, 138, 50, 1) 25%,
+      rgba(111, 196, 28, 1) 50%,
+      rgba(158, 203, 14, 1) 85%,
+      rgba(146, 199, 82, 1) 100%
+    );
     color: var(--title);
     padding: 1rem;
     border: none;
