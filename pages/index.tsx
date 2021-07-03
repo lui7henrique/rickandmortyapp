@@ -3,15 +3,13 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Character } from "../components/Character";
+import { PageNotFound } from "../components/PageNotFound";
 
 const defaultEndpoint = "https://rickandmortyapi.com/api/character";
 
-type CurrentTarget = {
-  form: {
-    input: HTMLInputElement;
-    button: HTMLButtonElement;
-  };
-};
+interface IProps {
+  handleSearchTyping(event: React.FormEvent<HTMLInputElement>): void;
+}
 
 export async function getServerSideProps() {
   const res = await fetch(defaultEndpoint);
@@ -42,6 +40,7 @@ export default function Home({ data }: any) {
     async function request() {
       const res = await fetch(current);
       const nextData = await res.json();
+      console.log(res);
 
       updatePage({ current, ...nextData.info });
 
@@ -67,7 +66,7 @@ export default function Home({ data }: any) {
     });
   }
 
-  function handleSubmitSearch(event: React.FormEvent<HTMLInputElement>) {
+  function handleSubmitSearch(event: React.FormEvent) {
     event.preventDefault();
 
     const endpoint = `https://rickandmortyapi.com/api/character/?name=${search}`;
@@ -88,9 +87,9 @@ export default function Home({ data }: any) {
           <img src="./portal2.png" alt="Portal" />
         </button>
       </form>
-      <div className="cardList">
-        {results ? (
-          results.map((results: any) => {
+      {results ? (
+        <div className="cardList">
+          {results.map((results: any) => {
             const {
               id,
               name,
@@ -112,11 +111,11 @@ export default function Home({ data }: any) {
                 image={image}
               />
             );
-          })
-        ) : (
-          <h1>oi</h1>
-        )}
-      </div>
+          })}
+        </div>
+      ) : (
+        <PageNotFound />
+      )}
       {results && (
         <button className="load" onClick={handleLoadMore}>
           Load more
