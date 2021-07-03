@@ -9,7 +9,6 @@
 - [x] Responsivity
 - [ ] Light Theme
 - [ ] React Native version
-- [ ] Outros bancos de dados
 
 
 
