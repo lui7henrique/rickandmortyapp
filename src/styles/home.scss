@@ -8,7 +8,6 @@
   > form {
     display: flex;
     > button {
-      width: 5%;
       padding: 0.5rem;
       background: var(--shape);
       border-radius: 0 0.5rem 0.5rem 0;
@@ -19,9 +18,9 @@
       }
     }
     > input {
+      width: 100%;
       font-size: 1.5rem;
       font-weight: 600;
-      width: 95%;
       padding: 1rem;
       background: var(--shape);
       border: none;
