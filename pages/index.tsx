@@ -6,6 +6,10 @@ import { Character } from "../components/Character";
 
 const defaultEndpoint = "https://rickandmortyapi.com/api/character";
 
+type CurrentTarget = {
+  values: any;
+};
+
 export async function getServerSideProps() {
   const res = await fetch(defaultEndpoint);
   const data = await res.json();
@@ -59,13 +63,13 @@ export default function Home({ data }: any) {
     });
   }
 
-  function handleSubmitSearch(e) {
+  function handleSubmitSearch(e: any) {
     e.preventDefault();
 
-    const { currentTarget = {} } = e;
+    const { currentTarget = {} }: any = e;
     console.log(currentTarget);
-    const fields = Array.from(currentTarget.elements);
-    const fieldQuery = fields.find((field) => field.name === "query");
+    const fields = Array.from(currentTarget.values);
+    const fieldQuery: any = fields.find((field: any) => field.name === "query");
 
     const value = fieldQuery.value || "";
     console.log(value);
@@ -79,31 +83,49 @@ export default function Home({ data }: any) {
   return (
     <div className="home">
       <form onSubmit={handleSubmitSearch}>
-        <input name="query" type="search" />
+        <input
+          name="query"
+          type="search"
+          placeholder="Search a character by name"
+        />
         <button>
-          <img src="./portal2.png" />
+          <img src="./portal2.png" alt="Portal" />
         </button>
       </form>
       <div className="cardList">
-        {results.map((results: any) => {
-          const { id, name, status, species, gender, origin, location, image } =
-            results;
-          return (
-            <Character
-              key={id}
-              name={name}
-              status={status}
-              species={species}
-              origin={origin}
-              location={location}
-              image={image}
-            />
-          );
-        })}
+        {results ? (
+          results.map((results: any) => {
+            const {
+              id,
+              name,
+              status,
+              species,
+              gender,
+              origin,
+              location,
+              image,
+            } = results;
+            return (
+              <Character
+                key={id}
+                name={name}
+                status={status}
+                species={species}
+                origin={origin}
+                location={location}
+                image={image}
+              />
+            );
+          })
+        ) : (
+          <h1>oi</h1>
+        )}
       </div>
-      <button className="load" onClick={handleLoadMore}>
-        Load more
-      </button>
+      {results && (
+        <button className="load" onClick={handleLoadMore}>
+          Load more
+        </button>
+      )}
     </div>
   );
 }
