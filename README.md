@@ -1,4 +1,4 @@
-> Acess on: https://rickandmortyapp-steel.vercel.app/
+> Acess on: https://rickandmortyapp-jet.vercel.app/
 
 ## 🧠 To develop
 - [ ] Readme
