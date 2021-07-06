@@ -17,10 +17,9 @@ RickNMorty is perfect for the biggest (and curious) fans who like to know everyt
 
 ## 🧪 Technologies
 
-Esse projeto foi desenvolvido usando as seguintes tecnologias
-
+This project was developed using the technologies:
 - [ReactJS](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [NextJS](https://nextjs.org/)
 - [SASS](https://sass-lang.com/)
-
+- [Rick and Morty API](https://rickandmortyapi.com/)
