@@ -16,7 +16,7 @@ RickNMorty is perfect for the biggest (and curious) fans who like to know everyt
 - [ ] Light Theme
 - [ ] React Native version
 
-## 🧪 Technologies
+## 👩‍💻 Technologies
 
 This project was developed using the technologies:
 - [ReactJS](https://reactjs.org)
