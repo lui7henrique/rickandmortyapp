@@ -6,8 +6,9 @@ RickNMorty is perfect for the biggest (and curious) fans who like to know everyt
 > Acess on: https://rickandmortyapp-jet.vercel.app/
 
 ## 🧠 To develop
-- [ ] Readme
-- [ ] Remove show more characters button when don't have more 
+- [x] Readme
+- [x] Remove show more characters button when don't have more 
+- [ ] Styled Components
 - [ ] Character page
 - [ ] Location page
 - [ ] Show episodes
