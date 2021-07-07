@@ -11,6 +11,7 @@ RickNMorty is perfect for the biggest (and curious) fans who like to know everyt
 - [ ] Styled Components
 - [ ] Character page
 - [ ] Location page
+- [ ] Infinite Scroll
 - [ ] Show episodes
 - [x] Responsivity
 - [ ] Light Theme
